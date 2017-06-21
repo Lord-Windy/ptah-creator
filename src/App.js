@@ -4,6 +4,8 @@ import {
     Route,
     Link
 } from 'react-router-dom'
+
+import './css/normalize.css';
 import './css/App.css';
 
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
