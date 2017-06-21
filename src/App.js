@@ -40,10 +40,10 @@ class App extends Component {
             <Provider store={store}>
                 <ConnectedRouter history={history}>
                     <div>
-                        <nav>
-                            <Link to="/compose">Compose new Node</Link>
-                            <Link to="/overview">Look at Overview</Link>
-                            <Link to="/">Return to Home</Link>
+                        <nav id="navigation">
+                            <Link to="/compose" className="nav-item">Compose new Node</Link>
+                            <Link to="/overview" className="nav-item">Look at Overview</Link>
+                            <Link to="/" className="nav-item">Return to Home</Link>
                         </nav>
                         <Route exact path = "/" component = { Home } />
                         <Route path = "/compose" component = { Compose } />
