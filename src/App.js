@@ -6,6 +6,12 @@ import {
 } from 'react-router-dom'
 import './css/App.css';
 
+import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+
+import createHistory from 'history/createBrowserHistory'
+
 import Home from './views/Home.js'
 import Compose from './views/Compose.js'
 import Overview from './views/Overview.js'
@@ -14,24 +20,35 @@ import Overview from './views/Overview.js'
     return <Home/>
 }*/
 
+const history = createHistory();
+const middleware = routerMiddleware(history);
+
+const store = createStore(
+    combineReducers({router: routerReducer}),
+    applyMiddleware(middleware)
+);
+
+
 class App extends Component {
 
 
 
     render() {
         return (
-            <Router>
-                <div>
-                    <nav>
-                        <Link to="/compose">Compose new Node</Link>
-                        <Link to="/overview">Look at Overview</Link>
-                        <Link to="/">Return to Home</Link>
-                    </nav>
-                    <Route exact path = "/" component = { Home } />
-                    <Route path = "/compose" component = { Compose } />
-                    <Route path = "/overview" component = { Overview } />
-                </div>
-            </Router>
+            <Provider store={store}>
+                <ConnectedRouter history={history}>
+                    <div>
+                        <nav>
+                            <Link to="/compose">Compose new Node</Link>
+                            <Link to="/overview">Look at Overview</Link>
+                            <Link to="/">Return to Home</Link>
+                        </nav>
+                        <Route exact path = "/" component = { Home } />
+                        <Route path = "/compose" component = { Compose } />
+                        <Route path = "/overview" component = { Overview } />
+                    </div>
+                </ConnectedRouter>
+            </Provider>
         );
     }
 }

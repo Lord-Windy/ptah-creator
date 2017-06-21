@@ -6,6 +6,7 @@ import React, {Component} from 'react';
 
 export default class Compose extends Component {
     render() {
+        console.log(this)
         return (
             <div>
                 I am the Compose View
