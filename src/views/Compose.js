@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ModalCreateNode from '../components/ModalCreateNode.js'
 
 /**
  * This is a view, specifically one that renders the default screen
@@ -9,7 +10,7 @@ export default class Compose extends Component {
         console.log(this)
         return (
             <div>
-                I am the Compose View
+                <ModalCreateNode/>
             </div>
 
         );
