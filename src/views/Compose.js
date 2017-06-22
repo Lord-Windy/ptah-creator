@@ -5,6 +5,11 @@ import React, {Component} from 'react';
  */
 
 export default class Compose extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         console.log(this)
         return (
