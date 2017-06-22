@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Yarn++",
+  "name": "Yarn++ - Interactive Story Telling Tool",
   "icons": [
     {
       "src": "favicon.ico",
