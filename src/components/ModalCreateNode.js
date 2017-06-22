@@ -29,8 +29,6 @@ export default class ModalCreateNode extends Component {
                                         <Input
                                             icon='tags'
                                             iconPosition='left'
-                                            label={{ tag: true, content: 'Add Tag' }}
-                                            labelPosition='right'
                                             placeholder='Enter tags'
                                         />
                                     </Form.Field>
@@ -44,9 +42,8 @@ export default class ModalCreateNode extends Component {
                         </Modal.Description>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color='black' onClick={this.close}>Close</Button>
-                        <Button positive icon='checkmark' labelPosition='right'
-                                content="Save" onClick={this.close} />
+                        <Button color='black' onClick={this.close} content="Close"/>
+                        <Button positive icon='checkmark' labelPosition='right' content="Save" onClick={this.close}/>
                     </Modal.Actions>
                 </Modal>
             </div>
