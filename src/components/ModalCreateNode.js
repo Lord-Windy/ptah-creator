@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Popup, Button, Header, Image, Modal } from 'semantic-ui-react';
+import { Popup, Button, Modal, Input, Form, TextArea } from 'semantic-ui-react';
 
 export default class ModalCreateNode extends Component {
     state = { open: false }
@@ -11,22 +11,42 @@ export default class ModalCreateNode extends Component {
 
         return (
             <div>
-                <Button onClick={this.show('blurring')}>Blurring</Button>
+                <Button onClick={this.show('blurring')}>Make navigation 'New Node' do this</Button>
 
                 <Modal dimmer={dimmer} open={open} onClose={this.close}>
-                    <Modal.Header>Select a Photo</Modal.Header>
-                    <Modal.Content image>
+                    <Modal.Header>Add a New Node</Modal.Header>
+                    <Modal.Content>
                         <Modal.Description>
-                            <Header>Default Profile Image</Header>
-                            <p>We've found the following gravatar image associated with your e-mail address.</p>
-                            <p>Is it okay to use this photo?</p>
+                            <Form>
+                                <Form.Group widths='equal'>
+                                    <Form.Field
+                                        control={Input}
+                                        label='Title'
+                                        placeholder='Enter the title for this card here...'
+                                    />
+                                    <Form.Field>
+                                        <label>Tags</label>
+                                        <Input
+                                            icon='tags'
+                                            iconPosition='left'
+                                            label={{ tag: true, content: 'Add Tag' }}
+                                            labelPosition='right'
+                                            placeholder='Enter tags'
+                                        />
+                                    </Form.Field>
+                                </Form.Group>
+                                <Form.Field id='form-textarea-control-opinion'
+                                            control={TextArea}
+                                            label='Story'
+                                            placeholder='Write your story dialog here...'
+                                />
+                            </Form>
                         </Modal.Description>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color='black' onClick={this.close}>
-                            Nope
-                        </Button>
-                        <Button positive icon='checkmark' labelPosition='right' content="Yep, that's me" onClick={this.close} />
+                        <Button color='black' onClick={this.close}>Close</Button>
+                        <Button positive icon='checkmark' labelPosition='right'
+                                content="Save" onClick={this.close} />
                     </Modal.Actions>
                 </Modal>
             </div>
