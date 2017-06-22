@@ -12,6 +12,8 @@ export default class Overview extends Component {
         return (
             <div>
                 <PrettyNode/>
+                <PrettyNode/>
+                <PrettyNode/>
             </div>
 
         );

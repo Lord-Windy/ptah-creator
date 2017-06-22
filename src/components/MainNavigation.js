@@ -9,15 +9,24 @@ export default class MainNavigation extends Component {
         return (
             <div>
                 <Menu attached='top'>
-                    <Dropdown item icon='wrench' simple>
-                        <Dropdown.Menu>
-                            <Link to="/" className="nav-item"><Dropdown.Item>Home View</Dropdown.Item></Link>
-                            <Link to="/compose" className="nav-item"><Dropdown.Item>Compose View</Dropdown.Item></Link>
-                            <Link to="/overview" className="nav-item"><Dropdown.Item>Overview</Dropdown.Item></Link>
-                            <Dropdown.Item>New Node</Dropdown.Item>
-                            <Dropdown.Item>Export to JSON</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
+                    <Link to="/" className="nav-item">
+                        <Menu.Item>
+                            <Icon name="home"/>
+                            Overview
+                        </Menu.Item>
+                    </Link>
+
+                    <Link to="/compose" className="nav-item">
+                        <Menu.Item name="create-node">
+                            <Icon name="plus"/>
+                            New Node
+                        </Menu.Item>
+                    </Link>
+
+                    <Menu.Item name="create-node">
+                        <Icon name="save"/>
+                        Export to JSON
+                    </Menu.Item>
 
                     <Menu.Menu position='right'>
                         <div className='ui right aligned category search item'>
