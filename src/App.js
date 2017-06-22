@@ -30,8 +30,12 @@ export default class App extends Component {
                 <ConnectedRouter history={history}>
                     <div>
                         <MainNavigation/>
-                        <Route exact path = "/" component = { Overview } />
-                        <Route path = "/compose" component = { Compose } />
+                        <Route exact path = "/" render = { (props) => (
+                            <Overview {...props} store={store} />
+                        )}/>
+                        <Route path = "/compose" render = { (props) => (
+                            <Compose {...props} store={store} />
+                        )}/>
                     </div>
                 </ConnectedRouter>
             </Provider>
