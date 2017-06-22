@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PrettyNode from './PrettyNode.js'
+import PrettyNode from '../components/PrettyNode.js'
 
 /**
  * This is a view, specifically one that renders the default screen

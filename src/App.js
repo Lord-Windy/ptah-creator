@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {
     BrowserRouter as Router,
     Route,
-    Link
 } from 'react-router-dom'
 import './css/App.css';
 
@@ -15,7 +14,7 @@ import createHistory from 'history/createBrowserHistory'
 import Home from './views/Home.js'
 import Compose from './views/Compose.js'
 import Overview from './views/Overview.js'
-import MainNavigation from './views/MainNavigation.js'
+import MainNavigation from './components/MainNavigation.js'
 
 const history = createHistory();
 const middleware = routerMiddleware(history);
