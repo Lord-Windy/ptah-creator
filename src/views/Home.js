@@ -16,7 +16,6 @@ export default class Overview extends Component {
                 <PrettyNode/>
                 <PrettyNode/>
                 <PrettyNode/>
-
             </div>
         );
     }

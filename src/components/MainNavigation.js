@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Dropdown, Icon, Menu } from 'semantic-ui-react'
+import { Dropdown, Button, Icon, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 // TODO: Update <Search> usage after its will be implemented
@@ -12,18 +12,22 @@ export default class MainNavigation extends Component {
                     <Link to="/">
                         <Menu.Item>
                             <Icon name="home"/>
-                            Overview
+                            Home
                         </Menu.Item>
                     </Link>
+
+                    <Menu.Item>
+                        <Icon name="download"/>
+                        Import
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Icon name="upload"/>
+                        Export
+                    </Menu.Item>
 
                     <Menu.Item /*onItemClick(event: SyntheticEvent, data: object)*/>
                         <Icon name="plus"/>
                         New Node
-                    </Menu.Item>
-
-                    <Menu.Item>
-                        <Icon name="save"/>
-                        Export to JSON
                     </Menu.Item>
 
                     <Menu.Menu position='right'>

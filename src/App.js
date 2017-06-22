@@ -11,7 +11,7 @@ import { Provider } from 'react-redux'
 
 import createHistory from 'history/createBrowserHistory'
 
-import Overview from './views/Overview.js'
+import Overview from './views/Home.js'
 import MainNavigation from './components/MainNavigation.js'
 
 const history = createHistory();
