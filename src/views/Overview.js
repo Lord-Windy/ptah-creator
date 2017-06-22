@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import PrettyNode from '../components/PrettyNode.js'
 
 /**
@@ -6,7 +7,6 @@ import PrettyNode from '../components/PrettyNode.js'
  */
 
 export default class Overview extends Component {
-
     render() {
         console.log(this);
         return (
@@ -15,7 +15,6 @@ export default class Overview extends Component {
                 <PrettyNode/>
                 <PrettyNode/>
             </div>
-
         );
     }
 }

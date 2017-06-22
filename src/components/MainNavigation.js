@@ -9,21 +9,19 @@ export default class MainNavigation extends Component {
         return (
             <div>
                 <Menu attached='top'>
-                    <Link to="/" className="nav-item">
+                    <Link to="/">
                         <Menu.Item>
                             <Icon name="home"/>
                             Overview
                         </Menu.Item>
                     </Link>
 
-                    <Link to="/compose" className="nav-item">
-                        <Menu.Item name="create-node">
-                            <Icon name="plus"/>
-                            New Node
-                        </Menu.Item>
-                    </Link>
+                    <Menu.Item /*onItemClick(event: SyntheticEvent, data: object)*/>
+                        <Icon name="plus"/>
+                        New Node
+                    </Menu.Item>
 
-                    <Menu.Item name="create-node">
+                    <Menu.Item>
                         <Icon name="save"/>
                         Export to JSON
                     </Menu.Item>

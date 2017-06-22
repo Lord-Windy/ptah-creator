@@ -3,7 +3,6 @@ import { Popup, Button, Header, Image, Modal } from 'semantic-ui-react';
 
 export default class ModalCreateNode extends Component {
     state = { open: false }
-
     show = (dimmer) => () => this.setState({ dimmer, open: true })
     close = () => this.setState({ open: false })
 

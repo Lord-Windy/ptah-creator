@@ -11,7 +11,6 @@ import { Provider } from 'react-redux'
 
 import createHistory from 'history/createBrowserHistory'
 
-import Compose from './views/Compose.js'
 import Overview from './views/Overview.js'
 import MainNavigation from './components/MainNavigation.js'
 
@@ -32,9 +31,6 @@ export default class App extends Component {
                         <MainNavigation/>
                         <Route exact path = "/" render = { (props) => (
                             <Overview {...props} store={store} />
-                        )}/>
-                        <Route path = "/compose" render = { (props) => (
-                            <Compose {...props} store={store} />
                         )}/>
                     </div>
                 </ConnectedRouter>
