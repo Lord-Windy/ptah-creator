@@ -1,23 +1,34 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import Draggable from 'react-draggable';
 import { Button, Card } from 'semantic-ui-react'
 
 // TODO: Replace card title, meta, description, with user generated content.
 
 export default class PrettyNode extends Component {
+    static propTypes = {
+        title: PropTypes.string,
+        body: PropTypes.string,
+        id: PropTypes.number
+    }
+
     render() {
+        let {title, body, id} = this.props
+
         return (
         <Draggable>
             <Card>
                 <Card.Content>
                     <Card.Header>
-                        Default Card
+                        {title}
                     </Card.Header>
                     <Card.Meta>
-                        Card ID or some other useful information, tags?
+                        <span className="date">
+                            Node's "id" is {id}
+                        </span>
                     </Card.Meta>
                     <Card.Description>
-                        This is a story all about how my life got flipped turned upside down.
+                        {body}
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>

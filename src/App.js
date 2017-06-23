@@ -1,16 +1,11 @@
 import React, {Component} from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-} from 'react-router-dom'
-import './css/App.css';
-
+import {BrowserRouter as Router, Route,} from 'react-router-dom'
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 
 import createHistory from 'history/createBrowserHistory'
-
+import './css/App.css';
 import Overview from './views/Home.js'
 import MainNavigation from './components/MainNavigation.js'
 
