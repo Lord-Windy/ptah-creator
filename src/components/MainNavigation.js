@@ -2,14 +2,20 @@ import React, {Component} from 'react'
 import { Dropdown, Button, Icon, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+
+
 // TODO: Update <Search> usage after its will be implemented
 
 export default class MainNavigation extends Component {
+    constructor (props) {
+        super(props)
+    }
+
     render() {
         return (
             <div>
                 <Menu attached='top'>
-                    <Link to="/">
+                        <Link to="/">
                         <Menu.Item>
                             <Icon name="home"/>
                             Home
@@ -25,7 +31,7 @@ export default class MainNavigation extends Component {
                         Export
                     </Menu.Item>
 
-                    <Menu.Item /*onItemClick(event: SyntheticEvent, data: object)*/>
+                    <Menu.Item onClick = {this.props.showNewNode}>
                         <Icon name="plus"/>
                         New Node
                     </Menu.Item>

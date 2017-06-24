@@ -8,12 +8,16 @@ import ModalCreateNode from '../components/ModalCreateNode.js'
  */
 
 export default class Overview extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         console.log(this);
         return (
             <div>
-                <ModalCreateNode/>
-                <PrettyNode/>
+                <PrettyNode title="Hello"/>
                 <PrettyNode/>
                 <PrettyNode/>
             </div>

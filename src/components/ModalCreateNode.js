@@ -17,12 +17,12 @@ export default class ModalCreateNode extends Component {
         let {contentTitle, contentStory, contentTags} = this.props;
 
         const { open, dimmer } = this.state;
-
+        console.log(this.props);
         return (
-            <div>
-                <Button onClick={this.show('blurring')}>Make 'New Node/Edit' do this</Button>
 
-                <Modal dimmer={dimmer} open={open} onClose={this.close}>
+            <div>
+
+                <Modal dimmer={this.props.show} open={this.props.show} onClose={this.props.showNewNode}>
                     <Modal.Header>Add A New Node</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
