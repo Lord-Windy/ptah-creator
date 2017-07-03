@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+
 import PrettyNode from '../components/PrettyNode.js'
+import ModalCreateNode from '../components/ModalCreateNode.js'
 
 /**
  * This is a view, specifically one that renders the default screen
@@ -7,15 +9,18 @@ import PrettyNode from '../components/PrettyNode.js'
 
 export default class Overview extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         console.log(this);
         return (
             <div>
-                <PrettyNode/>
+                <PrettyNode title="Hello"/>
                 <PrettyNode/>
                 <PrettyNode/>
             </div>
-
         );
     }
 }

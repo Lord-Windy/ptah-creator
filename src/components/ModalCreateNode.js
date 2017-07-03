@@ -1,33 +1,61 @@
 import React, { Component } from 'react';
-import { Popup, Button, Header, Image, Modal } from 'semantic-ui-react';
+import PropTypes from 'prop-types'
+import { Popup, Button, Modal, Input, Form, TextArea } from 'semantic-ui-react';
 
 export default class ModalCreateNode extends Component {
-    state = { open: false }
+    static propTypes = {
+        contentTitle: PropTypes.string,
+        contentStory: PropTypes.string,
+        contentTags: PropTypes.array
+    };
 
-    show = (dimmer) => () => this.setState({ dimmer, open: true })
-    close = () => this.setState({ open: false })
+    state = { open: false };
+    show = (dimmer) => () => this.setState({ dimmer, open: true });
+    close = () => this.setState({ open: false });
 
     render() {
-        const { open, dimmer } = this.state
+        let {contentTitle, contentStory, contentTags} = this.props;
 
+        const { open, dimmer } = this.state;
+        console.log(this.props);
         return (
-            <div>
-                <Button onClick={this.show('blurring')}>Blurring</Button>
 
-                <Modal dimmer={dimmer} open={open} onClose={this.close}>
-                    <Modal.Header>Select a Photo</Modal.Header>
-                    <Modal.Content image>
+            <div>
+
+                <Modal dimmer={this.props.show} open={this.props.show} onClose={this.props.showNewNode}>
+                    <Modal.Header>Add A New Node</Modal.Header>
+                    <Modal.Content>
                         <Modal.Description>
-                            <Header>Default Profile Image</Header>
-                            <p>We've found the following gravatar image associated with your e-mail address.</p>
-                            <p>Is it okay to use this photo?</p>
+                            <Form>
+                                <Form.Group widths='equal'>
+                                    <Form.Field
+                                        control={Input}
+                                        label='Title'
+                                        placeholder='Enter the title for this card here...'
+                                        content={contentTitle}
+                                    />
+                                    <Form.Field>
+                                        <label>Tags</label>
+                                        <Input
+                                            icon='tags'
+                                            iconPosition='left'
+                                            placeholder='Enter tags'
+                                            content={contentTags}
+                                        />
+                                    </Form.Field>
+                                </Form.Group>
+                                <Form.Field id='form-textarea-control-opinion'
+                                            control={TextArea}
+                                            label='Story'
+                                            placeholder='Write your story dialog here...'
+                                            content={contentStory}
+                                />
+                            </Form>
                         </Modal.Description>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color='black' onClick={this.close}>
-                            Nope
-                        </Button>
-                        <Button positive icon='checkmark' labelPosition='right' content="Yep, that's me" onClick={this.close} />
+                        <Button color='black' onClick={this.close} content="Close"/>
+                        <Button positive icon='checkmark' labelPosition='right' content="Save" onClick={this.close}/>
                     </Modal.Actions>
                 </Modal>
             </div>

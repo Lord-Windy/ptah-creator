@@ -1,18 +1,13 @@
 import React, {Component} from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-} from 'react-router-dom'
-import './css/App.css';
-
+import {BrowserRouter as Router, Route,} from 'react-router-dom'
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
+import ModalCreateNode from './components/ModalCreateNode.js'
 import { Provider } from 'react-redux'
 
 import createHistory from 'history/createBrowserHistory'
-
-import Compose from './views/Compose.js'
-import Overview from './views/Overview.js'
+import './css/App.css';
+import Overview from './views/Home.js'
 import MainNavigation from './components/MainNavigation.js'
 
 const history = createHistory();
@@ -24,17 +19,33 @@ const store = createStore(
 );
 
 export default class App extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showNewNode: false
+        };
+
+        this.handleShowModalCreaation = this.handleShowModalCreaation.bind(this);
+    }
+
+    handleShowModalCreaation(){
+        let show = !this.state.showNewNode;
+        this.setState ({
+            showNewNode: show
+        })
+    }
+
     render() {
         return (
             <Provider store={store}>
                 <ConnectedRouter history={history}>
                     <div>
-                        <MainNavigation/>
+                        <MainNavigation showNewNode = {this.handleShowModalCreaation} />
+                        <ModalCreateNode show = {this.state.showNewNode} showNewNode = {this.handleShowModalCreaation} />
                         <Route exact path = "/" render = { (props) => (
                             <Overview {...props} store={store} />
-                        )}/>
-                        <Route path = "/compose" render = { (props) => (
-                            <Compose {...props} store={store} />
                         )}/>
                     </div>
                 </ConnectedRouter>
