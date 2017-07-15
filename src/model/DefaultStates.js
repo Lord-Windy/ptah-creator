@@ -50,11 +50,10 @@ export function createDefaultNode() {
 
 export function createDefaultState() {
     return {
-        StartingID: 0,
+        RunningID: 0,
         ProjectName: "Place title here",
         Description: "The description",
         Author: "The Authors",
-        UserID: -1,
         Characters: [],
         Functions: [],
         Nodes: [],
