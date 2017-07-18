@@ -14,7 +14,6 @@ export default class Overview extends Component {
     }
 
     render() {
-        console.log(this);
         return (
             <div>
                 <PrettyNode title="Hello"/>

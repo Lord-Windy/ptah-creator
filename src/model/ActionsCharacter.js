@@ -9,3 +9,10 @@ export const EDIT_CHARACTER = "EDIT_CHARACTER";
 
 export const CHARACTER_ADD_VALUE = "CHARACTER_ADD_VALUE";
 export const CHARACTER_EDIT_VALUE = "CHARACTER_EDIT_VALUE";
+
+export default function addCharacter(character) {
+    return {
+        type: ADD_CHARACTER,
+        Character: character
+    };
+}

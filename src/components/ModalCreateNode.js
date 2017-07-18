@@ -17,9 +17,7 @@ export default class ModalCreateNode extends Component {
         let {contentTitle, contentStory, contentTags} = this.props;
 
         const { open, dimmer } = this.state;
-        console.log(this.props);
         return (
-
             <div>
 
                 <Modal dimmer={this.props.show} open={this.props.show} onClose={this.props.showNewNode}>

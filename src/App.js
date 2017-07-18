@@ -4,6 +4,8 @@ import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-ro
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import ModalCreateNode from './components/ModalCreateNode.js'
 import { Provider } from 'react-redux'
+import CharacterReducers from './model/Reducer.js'
+import addCharacter from './model/ActionsCharacter.js'
 
 import createHistory from 'history/createBrowserHistory'
 import './css/App.css';
@@ -14,7 +16,7 @@ const history = createHistory();
 const middleware = routerMiddleware(history);
 
 const store = createStore(
-    combineReducers({router: routerReducer}),
+    combineReducers({routerReducer, CharacterReducers}),
     applyMiddleware(middleware)
 );
 
@@ -38,6 +40,8 @@ export default class App extends Component {
     }
 
     render() {
+        store.dispatch(addCharacter({ID: 0}));
+        console.log(store.getState());
         return (
             <Provider store={store}>
                 <ConnectedRouter history={history}>
