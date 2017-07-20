@@ -41,6 +41,9 @@ export default class App extends Component {
 
     render() {
         store.dispatch(addCharacter({ID: 0}));
+        store.dispatch(addCharacter({ID: 0}));
+        store.dispatch(addCharacter({ID: 0}));
+        store.dispatch(addCharacter({ID: 0}));
         console.log(store.getState());
         return (
             <Provider store={store}>

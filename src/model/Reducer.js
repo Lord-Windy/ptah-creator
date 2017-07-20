@@ -3,7 +3,15 @@
  */
 
 import {ADD_CHARACTER} from './ActionsCharacter.js';
+import {reducerAddCharacter} from './ActionsCharacter.js'
 import {createDefaultState} from './DefaultStates';
+
+export function assignID(state){
+
+    let ID = state.RunningID;
+    state.RunningID += 1;
+    return ID;
+}
 
 export default function CharacterReducers(state, action) {
     if (typeof state === 'undefined'){
@@ -14,12 +22,7 @@ export default function CharacterReducers(state, action) {
     switch (action.type) {
         case ADD_CHARACTER:
         {
-            action.Character.ID = state.RunningID;
-            return {
-                ...state,
-                RunningID: state.RunningID+1,
-                Characters: [...state.Characters, action.Character]
-            }
+            return reducerAddCharacter(Object.assign({}, state), action);
         }
     }
 
