@@ -2,7 +2,7 @@
  * Created by sam on 6/7/17.
  */
 
-import {ADD_CHARACTER} from './ActionsCharacter.js';
+import {ADD_CHARACTER, REMOVE_CHARACTER} from './ActionsCharacter.js';
 import {reducerAddCharacter} from './ActionsCharacter.js'
 import {createDefaultState} from './DefaultStates';
 
@@ -21,9 +21,7 @@ export default function CharacterReducers(state, action) {
     console.log(state);
     switch (action.type) {
         case ADD_CHARACTER:
-        {
             return reducerAddCharacter(Object.assign({}, state), action);
-        }
     }
 
     return state;
