@@ -43,9 +43,9 @@ export default class App extends Component {
 
     render() {
         store.dispatch(addNode(createDefaultNode()));
-        console.log(store.getState());
-        store.dispatch(editNode({ID: 0, Description: "Hello!"}));
-        console.log(store.getState());
+        store.dispatch(addNode(createDefaultNode()));
+        store.dispatch(editNode({ID: 0, Title: "First", Description: "Hello!"}));
+        store.dispatch(editNode({ID: 1, Title: "Second", Description: "Woot!", X: 100, Y:100}));
         return (
             <Provider store={store}>
                 <ConnectedRouter history={history}>

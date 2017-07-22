@@ -13,12 +13,28 @@ export default class Overview extends Component {
         super(props);
     }
 
+    renderIndividualNode(node) {
+        return (
+            <PrettyNode Node={node}/>
+        )
+    }
+
+    renderNodes() {
+        let components = [];
+        let state = this.props.store.getState().Reducer;
+        //console.log(state);
+        for (let i = 0; i < state.Nodes.length; i++){
+            components.push(this.renderIndividualNode(state.Nodes[i]));
+        }
+
+        return components;
+    }
+
     render() {
+        //console.log(this.props);
         return (
             <div>
-                <PrettyNode title="Hello"/>
-                <PrettyNode/>
-                <PrettyNode/>
+                {this.renderNodes()}
             </div>
         );
     }

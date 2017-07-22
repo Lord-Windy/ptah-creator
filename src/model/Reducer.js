@@ -20,7 +20,6 @@ export default function Reducer(state, action) {
     }
     let newState = Object.assign({}, state);
     //now we do our cases!
-    console.log(action);
     switch (action.type) {
         case ADD_CHARACTER:
             return reducerAddCharacter(newState, action);
