@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { Button, Icon, Menu, Modal, Input, Form, TextArea } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+import NewNodeModal from './modals/NewNodeModal.js'
+
 var fileDownload = require('react-file-download');
 let reader = new FileReader();
 
@@ -15,7 +17,6 @@ export default class MainNavigation extends Component {
         this.storeData = this.storeData.bind(this);
     }
 
-    newNode () {}
     biggerNodes () {}
     smallerNodes () {}
 
@@ -53,8 +54,6 @@ export default class MainNavigation extends Component {
     }
 
     render() {
-        let {contentTitle, contentStory, contentTags} = this.props;
-
         return (
             <div>
                 <Menu>
@@ -69,48 +68,7 @@ export default class MainNavigation extends Component {
                         Export
                     </Menu.Item>
 
-                    <Modal
-                        trigger={
-                            <Menu.Item>
-                                <Icon name="sticky note"/>
-                                New Node
-                            </Menu.Item>
-                        }
-                        closeIcon='close'>
-                        <Modal.Header>Add A New Node</Modal.Header>
-                        <Modal.Content>
-                            <Modal.Description>
-                                <Form>
-                                    <Form.Group widths='equal'>
-                                        <Form.Field
-                                            control={Input}
-                                            label='Title'
-                                            placeholder='Enter the title for this card here...'
-                                            content={contentTitle}
-                                        />
-                                        <Form.Field>
-                                            <label>Tags</label>
-                                            <Input
-                                                icon='tags'
-                                                iconPosition='left'
-                                                placeholder='Enter tags'
-                                                content={contentTags}
-                                            />
-                                        </Form.Field>
-                                    </Form.Group>
-                                    <Form.Field id='form-textarea-control-opinion'
-                                                control={TextArea}
-                                                label='Story'
-                                                placeholder='Write your story dialog here...'
-                                                content={contentStory}
-                                    />
-                                </Form>
-                            </Modal.Description>
-                        </Modal.Content>
-                        <Modal.Actions>
-                            <Button positive icon='checkmark' labelPosition='right' content="Save" onClick={this.newNode}/>
-                        </Modal.Actions>
-                    </Modal>
+                    <NewNodeModal/>
 
                     <Menu.Menu position='right'>
                         <Menu.Item onClick = {this.biggerNodes}><Icon name="plus"/></Menu.Item>
