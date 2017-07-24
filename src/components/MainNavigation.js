@@ -15,6 +15,9 @@ export default class MainNavigation extends Component {
         this.storeData = this.storeData.bind(this);
     }
 
+    biggerNodes () {}
+    smallerNodes () {}
+
     downloadState() {
         //console.log(this);
         let state  = this.props.store.getState().Reducer;
@@ -68,7 +71,7 @@ export default class MainNavigation extends Component {
                     <Modal
                         trigger={
                             <Menu.Item>
-                                <Icon name="plus"/>
+                                <Icon name="sticky note"/>
                                 New Node
                             </Menu.Item>
                         }>
@@ -109,6 +112,8 @@ export default class MainNavigation extends Component {
                     </Modal>
 
                     <Menu.Menu position='right'>
+                        <Menu.Item onClick = {this.biggerNodes}><Icon name="plus"/></Menu.Item>
+                        <Menu.Item onClick = {this.smallerNodes}><Icon name="minus"/></Menu.Item>
                         <div className='ui right aligned category search item'>
                             <div className='ui transparent icon input'>
                                 <input className='prompt' type='text' placeholder='Search nodes...'/>
