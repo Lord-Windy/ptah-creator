@@ -28,7 +28,7 @@ export function createDefaultFunction() {
 export function createDefaultChildNode() {
     return {
         childID: -1,
-        Dialogue: "",
+        ChoiceText: "",
         Description: "",
         Conditions: []
     }
@@ -39,6 +39,8 @@ export function createDefaultNode() {
         ID: -1,
         Title: "Title",
         Description: "",
+        Dialogue: "",
+        CharacterSpeaking: -1,
         Parent: -1,
         Children: [],
         Triggers: "", /**/

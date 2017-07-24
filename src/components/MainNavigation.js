@@ -14,6 +14,7 @@ export default class MainNavigation extends Component {
         this.downloadState = this.downloadState.bind(this);
         this.uploadState = this.uploadState.bind(this);
         this.storeData = this.storeData.bind(this);
+        this.redirectToInput = this.redirectToInput.bind(this);
     }
 
     downloadState() {
@@ -23,8 +24,6 @@ export default class MainNavigation extends Component {
     }
 
     storeData() {
-        console.log(this.props);
-        console.log(reader.result);
         let json = "";
         try {
             json = JSON.parse(reader.result);
@@ -32,6 +31,11 @@ export default class MainNavigation extends Component {
             console.log("Error in parsing file. Please ensure that it is the correct file");
             return;
         }
+    }
+
+    redirectToInput() {
+        let input = document.getElementById("input");
+        input.click();
     }
 
     uploadState() {
@@ -65,8 +69,8 @@ export default class MainNavigation extends Component {
                         <Icon name="download"/>
                         Import
                     </Menu.Item>
-                    <Menu.Item>
-                        <input type="file" id="input" onChange={this.uploadState}/>
+                    <Menu.Item onClick = {this.redirectToInput}>
+                        <input type="file" id="input" style={{display:'none'}} onChange={this.uploadState}/>
                         <Icon name="upload"/>
                         Export
                     </Menu.Item>
