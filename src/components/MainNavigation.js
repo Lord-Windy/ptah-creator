@@ -15,6 +15,7 @@ export default class MainNavigation extends Component {
         this.storeData = this.storeData.bind(this);
     }
 
+    newNode () {}
     biggerNodes () {}
     smallerNodes () {}
 
@@ -74,7 +75,8 @@ export default class MainNavigation extends Component {
                                 <Icon name="sticky note"/>
                                 New Node
                             </Menu.Item>
-                        }>
+                        }
+                        closeIcon='close'>
                         <Modal.Header>Add A New Node</Modal.Header>
                         <Modal.Content>
                             <Modal.Description>
@@ -106,7 +108,6 @@ export default class MainNavigation extends Component {
                             </Modal.Description>
                         </Modal.Content>
                         <Modal.Actions>
-                            <Button color='black' onClick={this.close} content="Close"/>
                             <Button positive icon='checkmark' labelPosition='right' content="Save" onClick={this.newNode}/>
                         </Modal.Actions>
                     </Modal>
