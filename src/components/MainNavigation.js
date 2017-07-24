@@ -53,19 +53,12 @@ export default class MainNavigation extends Component {
 
         return (
             <div>
-
-                <Menu attached='top'>
-                        <Link to="/">
-                        <Menu.Item>
-                            <Icon name="home"/>
-                            Home
-                        </Menu.Item>
-                    </Link>
-
+                <Menu>
                     <Menu.Item onClick = {this.downloadState}>
                         <Icon name="download"/>
                         Import
                     </Menu.Item>
+
                     <Menu.Item>
                         <input type="file" id="input" onChange={this.uploadState}/>
                         <Icon name="upload"/>
