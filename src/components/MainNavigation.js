@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Dropdown, Button, Icon, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+import {loadState} from "../model/ActionsState.js"
 
 var fileDownload = require('react-file-download');
 let reader = new FileReader();
@@ -31,6 +32,15 @@ export default class MainNavigation extends Component {
             console.log("Error in parsing file. Please ensure that it is the correct file");
             return;
         }
+
+        if (json.Nodes === undefined || json.Characters === undefined){
+            console.log("Incorrect JSON Object. This cannot be used with Hikuptah")
+        }
+        console.log(json);
+        console.log(this.props);
+        this.props.store.dispatch(loadState(json));
+        console.log(this.props.store.getState());
+        this.props.reRender();
     }
 
     redirectToInput() {

@@ -32,6 +32,12 @@ export default class App extends Component {
         };
 
         this.handleShowModalCreaation = this.handleShowModalCreaation.bind(this);
+        this.forceReRender = this.forceReRender.bind(this);
+    }
+
+    forceReRender() {
+        console.log("forcing update")
+        this.forceUpdate();
     }
 
     handleShowModalCreaation(){
@@ -42,15 +48,15 @@ export default class App extends Component {
     }
 
     render() {
-        store.dispatch(addNode(createDefaultNode()));
-        store.dispatch(addNode(createDefaultNode()));
-        store.dispatch(editNode({ID: 0, Title: "First", Description: "Hello!"}));
-        store.dispatch(editNode({ID: 1, Title: "Second", Description: "Woot!", X: 100, Y:100}));
+        //store.dispatch(addNode(createDefaultNode()));
+        //store.dispatch(addNode(createDefaultNode()));
+        //store.dispatch(editNode({ID: 0, Title: "First", Description: "Hello!"}));
+        //store.dispatch(editNode({ID: 1, Title: "Second", Description: "Woot!", X: 100, Y:100}));
         return (
             <Provider store={store}>
                 <ConnectedRouter history={history}>
                     <div>
-                        <MainNavigation showNewNode = {this.handleShowModalCreaation} store={store}/>
+                        <MainNavigation showNewNode = {this.handleShowModalCreaation} reRender={this.forceReRender} store={store}/>
                         <ModalCreateNode show = {this.state.showNewNode} showNewNode = {this.handleShowModalCreaation} />
                         <Route exact path = "/" render = { (props) => (
                             <Overview {...props} store={store} />
