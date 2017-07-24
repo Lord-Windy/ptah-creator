@@ -50,7 +50,7 @@ export default class App extends Component {
             <Provider store={store}>
                 <ConnectedRouter history={history}>
                     <div>
-                        <MainNavigation showNewNode = {this.handleShowModalCreaation} />
+                        <MainNavigation showNewNode = {this.handleShowModalCreaation} store={store}/>
                         <ModalCreateNode show = {this.state.showNewNode} showNewNode = {this.handleShowModalCreaation} />
                         <Route exact path = "/" render = { (props) => (
                             <Overview {...props} store={store} />

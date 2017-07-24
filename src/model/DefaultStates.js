@@ -37,7 +37,7 @@ export function createDefaultChildNode() {
 export function createDefaultNode() {
     return {
         ID: -1,
-        Title: -1,
+        Title: "Title",
         Description: "",
         Parent: -1,
         Children: [],
