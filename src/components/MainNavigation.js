@@ -63,7 +63,7 @@ export default class MainNavigation extends Component {
                     </Menu.Item>
 
                     <Menu.Item>
-                        <input type="file" id="input" onChange={this.uploadState}/>
+                        <input style={{display:'none'}} type="file" id="input" onChange={this.uploadState}/>
                         <Icon name="upload"/>
                         Export
                     </Menu.Item>
