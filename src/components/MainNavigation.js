@@ -77,12 +77,12 @@ export default class MainNavigation extends Component {
 
                     <Menu.Item onClick = {this.downloadState}>
                         <Icon name="download"/>
-                        Import
+                        Download
                     </Menu.Item>
                     <Menu.Item onClick = {this.redirectToInput}>
                         <input type="file" id="input" style={{display:'none'}} onChange={this.uploadState}/>
                         <Icon name="upload"/>
-                        Export
+                        Upload
                     </Menu.Item>
 
                     <Menu.Item onClick = {this.props.showNewNode}>

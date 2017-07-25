@@ -2,7 +2,6 @@
 export function createDefaultValue() {
     return {
         Name: "",
-        Value: ""
     }
 }
 
@@ -11,7 +10,6 @@ export function createDefaultCharacter() {
         ID: -1,
         Name: "",
         Description: "",
-        Values: []
     }
 
 }

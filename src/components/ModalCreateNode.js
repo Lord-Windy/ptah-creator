@@ -52,7 +52,7 @@ export default class ModalCreateNode extends Component {
                         </Modal.Description>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color='black' onClick={this.close} content="Close"/>
+                        <Button color='black' onClick={this.props.showNewNode} content="Close"/>
                         <Button positive icon='checkmark' labelPosition='right' content="Save" onClick={this.close}/>
                     </Modal.Actions>
                 </Modal>
