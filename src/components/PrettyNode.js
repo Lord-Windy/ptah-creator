@@ -1,11 +1,17 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import Draggable from 'react-draggable';
 import { Button, Card } from 'semantic-ui-react'
 
 // TODO: Replace card title, meta, description, with user generated content.
 
 export default class PrettyNode extends Component {
+    editNode (node) {
+        //open modal with this nodes prefilled information
+    }
+
+    addNodeChild (node) {
+        //open modal with parent node predetermined
+    }
 
     render() {
         console.log(this.props)
@@ -19,8 +25,13 @@ export default class PrettyNode extends Component {
                         {this.props.Node.Title}
                     </Card.Header>
                     <Card.Meta>
-                        <span className="date">
+                        <span className="nodeID">
                             Node's "id" is {this.props.Node.ID}
+                        </span>
+                    </Card.Meta>
+                    <Card.Meta>
+                        <span className="nodeCoords">
+                            X: {this.props.Node.X} Y: {this.props.Node.Y}
                         </span>
                     </Card.Meta>
                     <Card.Description>
@@ -29,8 +40,8 @@ export default class PrettyNode extends Component {
                 </Card.Content>
                 <Card.Content extra>
                     <div className='ui two buttons'>
-                        <Button basic color='blue'>Edit</Button>
-                        <Button basic color='green'>Add Child</Button>
+                        <Button basic color='blue' onClick={this.editNode(this.props.Node)}>Edit</Button>
+                        <Button basic color='green' onClick={this.addNodeChild(this.props.Node)}>Add Child</Button>
                     </div>
                 </Card.Content>
             </Card>

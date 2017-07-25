@@ -1,26 +1,24 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-import { Popup, Button, Modal, Input, Form, TextArea } from 'semantic-ui-react';
+/**
+ * Created by Stangahh on 24/07/2017.
+ */
+import React, {Component} from "react";
+import {Button, Form, Icon, Input, Menu, Modal, TextArea} from "semantic-ui-react";
 
-export default class ModalCreateNode extends Component {
-    static propTypes = {
-        contentTitle: PropTypes.string,
-        contentStory: PropTypes.string,
-        contentTags: PropTypes.array
-    };
+export default class NewNodeModal extends Component {
 
-    state = { open: false };
-    show = (dimmer) => () => this.setState({ dimmer, open: true });
-    close = () => this.setState({ open: false });
+    newNode () {}
 
     render() {
-        let {contentTitle, contentStory, contentTags} = this.props;
-
-        const { open, dimmer } = this.state;
         return (
             <div>
-
-                <Modal dimmer={this.props.show} open={this.props.show} onClose={this.props.showNewNode}>
+                <Modal
+                    trigger={
+                        <Menu.Item>
+                            <Icon name="sticky note"/>
+                            New Node
+                        </Menu.Item>
+                    }
+                    closeIcon='close'>
                     <Modal.Header>Add A New Node</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
@@ -30,7 +28,7 @@ export default class ModalCreateNode extends Component {
                                         control={Input}
                                         label='Title'
                                         placeholder='Enter the title for this card here...'
-                                        content={contentTitle}
+                                        content="contentTitle"
                                     />
                                     <Form.Field>
                                         <label>Tags</label>
@@ -38,7 +36,7 @@ export default class ModalCreateNode extends Component {
                                             icon='tags'
                                             iconPosition='left'
                                             placeholder='Enter tags'
-                                            content={contentTags}
+                                            content="contentTags"
                                         />
                                     </Form.Field>
                                 </Form.Group>
@@ -46,14 +44,13 @@ export default class ModalCreateNode extends Component {
                                             control={TextArea}
                                             label='Story'
                                             placeholder='Write your story dialog here...'
-                                            content={contentStory}
+                                            content="contentStory"
                                 />
                             </Form>
                         </Modal.Description>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color='black' onClick={this.props.showNewNode} content="Close"/>
-                        <Button positive icon='checkmark' labelPosition='right' content="Save" onClick={this.close}/>
+                        <Button positive icon='checkmark' labelPosition='right' content="Save" onClick={this.newNode}/>
                     </Modal.Actions>
                 </Modal>
             </div>

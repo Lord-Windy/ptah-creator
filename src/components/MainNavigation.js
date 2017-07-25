@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
-import { Dropdown, Button, Icon, Menu } from 'semantic-ui-react'
+import { Button, Icon, Menu, Modal, Input, Form, TextArea } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 import {loadState} from "../model/ActionsState.js"
+import NewNodeModal from './modals/NewNodeModal.js'
 
 var fileDownload = require('react-file-download');
 let reader = new FileReader();
@@ -11,12 +12,15 @@ let reader = new FileReader();
 
 export default class MainNavigation extends Component {
     constructor (props) {
-        super(props)
+        super(props);
         this.downloadState = this.downloadState.bind(this);
         this.uploadState = this.uploadState.bind(this);
         this.storeData = this.storeData.bind(this);
         this.redirectToInput = this.redirectToInput.bind(this);
     }
+
+    biggerNodes () {}
+    smallerNodes () {}
 
     downloadState() {
         //console.log(this);
@@ -30,7 +34,6 @@ export default class MainNavigation extends Component {
             json = JSON.parse(reader.result);
         } catch(e) {
             console.log("Error in parsing file. Please ensure that it is the correct file");
-            return;
         }
 
         if (json.Nodes === undefined || json.Characters === undefined){
@@ -52,7 +55,7 @@ export default class MainNavigation extends Component {
         let file = document.getElementById('input').files[0];
 
         if (file.type !== "text/plain") {
-            console.log("Incorrect File")
+            console.log("Incorrect File");
             return;
         }
 
@@ -67,14 +70,7 @@ export default class MainNavigation extends Component {
     render() {
         return (
             <div>
-                <Menu attached='top'>
-                        <Link to="/">
-                        <Menu.Item>
-                            <Icon name="home"/>
-                            Home
-                        </Menu.Item>
-                    </Link>
-
+                <Menu>
                     <Menu.Item onClick = {this.downloadState}>
                         <Icon name="download"/>
                         Download
@@ -85,12 +81,11 @@ export default class MainNavigation extends Component {
                         Upload
                     </Menu.Item>
 
-                    <Menu.Item onClick = {this.props.showNewNode}>
-                        <Icon name="plus"/>
-                        New Node
-                    </Menu.Item>
+                    <NewNodeModal/>
 
                     <Menu.Menu position='right'>
+                        <Menu.Item onClick = {this.biggerNodes}><Icon name="plus"/></Menu.Item>
+                        <Menu.Item onClick = {this.smallerNodes}><Icon name="minus"/></Menu.Item>
                         <div className='ui right aligned category search item'>
                             <div className='ui transparent icon input'>
                                 <input className='prompt' type='text' placeholder='Search nodes...'/>
